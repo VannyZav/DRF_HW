@@ -37,18 +37,18 @@ class IsSupplierOrConsumer(permissions.BasePermission):
 
 
 class ApiUserModelViewSet(viewsets.ModelViewSet):
-    permission_classes = [IsOwner]
+    permission_classes = [IsAdminUser]
     serializer_class = UserSerializer
     queryset = ApiUser.objects.all()
     http_method_names = ['get', 'post', 'delete', 'put', "patch"]
 
     def get_permissions(self):
         if self.action in ['update', 'partial_update', 'destroy']:
-            return [IsOwner()]
-        elif self.action == ['create']:
+            return [IsAdminUser() or IsOwner()]
+        elif self.action == 'create':
             return [permissions.AllowAny()]
         elif self.action in ['retrieve']:
-            return [IsOwner()]
+            return [IsAdminUser() or IsOwner()]
         elif self.action in ['list']:
             return [IsAdminUser()]
         return [permissions.AllowAny()]
