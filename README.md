@@ -29,12 +29,12 @@
    - http://127.0.0.1:8000/ApiUser/
    - использовать метод POST
    - по таким полям:
-   -{
+    {
    -    "username": "CharField",
    -    "email": "EmailField",
    -    "password": "CharField",
    -    "user_type": "CharField"
-   -}
+    }
 2. Получить список пользователей(доступно только администратору):<br/>
    - http://127.0.0.1:8000/ApiUser/
    - использовать метод GET
