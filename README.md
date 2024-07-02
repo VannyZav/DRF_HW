@@ -28,111 +28,111 @@
 1. Зарегистрироваться(доступно всем типам пользователям):<br/>
    - http://127.0.0.1:8000/ApiUser/
    - использовать метод POST
-   - по таким полям:
-    {
-   -    "username": "CharField",
-   -    "email": "EmailField",
-   -    "password": "CharField",
-   -    "user_type": "CharField"
-    }
+   - по таким полям:<br/>
+    {<br/>
+      "username": "CharField",<br/>
+      "email": "EmailField",<br/>
+      "password": "CharField",<br/>
+      "user_type": "CharField"<br/>
+    }<br/>
 2. Получить список пользователей(доступно только администратору):<br/>
    - http://127.0.0.1:8000/ApiUser/
    - использовать метод GET
-   - вернутся такие поля:
-   -{
-   -    "id": Integer,
-   -    "username": "CharField",
-   -    "email": "EmailField",
-   -    "user_type": "CharField"
-   -}
+   - вернутся такие поля:<br/>
+   {<br/>
+      "id": Integer,<br/>
+      "username": "CharField",<br/>
+      "email": "EmailField",<br/>
+      "user_type": "CharField"<br/>
+   }<br/>
 
 3. Получить, изменить, частично изменить, удалить определенного пользователя(доступно администратору или авторизованному владельцу данных):<br/>
 - http://127.0.0.1:8000/ApiUser/<id>/
 - использовать метод GET, PUT, PATCH, DELETE
-- использовать такие поля:
-   -{
-   -    "username": "CharField",
-   -    "email": "EmailField",
-   -    "password": "CharField",
-   -    "user_type": "CharField"
-   -}
+- использовать такие поля:<br/>
+   {<br/>
+        "username": "CharField",<br/>
+        "email": "EmailField",<br/>
+        "password": "CharField",<br/>
+        "user_type": "CharField"<br/>
+   }<br/>
 
 4. Зарегистрировать склад(доступно только администратору):
    - http://127.0.0.1:8000/WareHouse/
    - использовать метод POST
-   - с такими полями:
-   -{
-   -   "name": "CharField"
-   -}
+   - с такими полями:<br/>
+   {<br/>
+       "name": "CharField"<br/>
+   }<br/>
 
 5. Получить список складов(доступно всем):
    - http://127.0.0.1:8000/WareHouse/
    - использовать метод GET
-   - вернутся поля:
-   -{
-   -    "id": Integer,
-   -    "name": "CharField"
-   -}
+   - вернутся поля:<br/>
+   {<br/>
+       "id": Integer,<br/>
+       "name": "CharField"<br/>
+   }<br/>
 
 6. Получить определенный склад(доступно всем):
    - http://127.0.0.1:8000/WareHouse/<id>
    - использовать метод GET
-   - вернутся поля:
-   -{
-   -    "id": Integer,
-   -    "name": "CharField",
-   -}
+   - вернутся поля:<br/>
+   {<br/>
+       "id": Integer,<br/>
+       "name": "CharField",<br/>
+   }<br/>
 
 7. Изменить, частично изменить, удалить определенный склад(доступно только администратору):
    - http://127.0.0.1:8000/WareHouse/<id>
    - использовать методы PUT, PATCH, DELETE
-   - поля:
-   -{
-   -    "name": "CharField"
-   -}
+   - поля:<br/>
+   {<br/>
+         "name": "CharField"<br/>
+   }<br/>
 
 8. Зарегистрировать продукт(доступно только администратору):
    - http://127.0.0.1:8000/product/
    - использовать метод POST
-   - с такими полями:
-   -{
-   -    "count": PositiveInteger,
-   -    "name": "CharField",
-   -    "warehouse": Integer,
-   -}
+   - с такими полями:<br/>
+   {<br/>
+       "count": PositiveInteger,<br/>
+       "name": "CharField",<br/>
+       "warehouse": Integer,<br/>
+   }<br/>
 
 9. Получить список продуктов(доступно всем):
    - http://127.0.0.1:8000/product/
    - использовать метод GET
-   - вернутся поля:
-   -{
-        "id": Integer,
-        "count": PositiveInteger,
-        "name": "CharField",
-        "warehouse": Integer
-   -}
+   - вернутся поля:<br/>
+   {<br/>
+        "id": Integer,<br/>
+        "count": PositiveInteger,<br/>
+        "name": "CharField",<br/>
+        "warehouse": Integer<br/>
+   }<br/>
 
 10. Получить определенный продукт(доступно всем):
    - http://127.0.0.1:8000/product/<id>
    - использовать метод GET
-   - вернутся поля:
-   -{
-        "id": Integer,
-        "count": PositiveInteger,
-        "name": "CharField",
-        "warehouse": Integer
-   -}
+   - вернутся поля:<br/>
+   {<br/>
+        "id": Integer,<br/>
+        "count": PositiveInteger,<br/>
+        "name": "CharField",<br/>
+        "warehouse": Integer<br/>
+   }<br/>
 
 11. Частично изменить, изменить определенный продукт(доступно администратору, поставщику и потребителю):
     - http://127.0.0.1:8000/product/<id>
     - использовать метод PUT, PATCH
-    - используются поля:
-    -{   
-         "id": 25,
-         "count": 1428844,
-         "name": "лягуш",
-         "warehouse": 4
-    -}
+    - используются поля:<br/>
+    {<br/>   
+         "id": Integer,<br/>
+         "count": PositiveInteger,<br/>
+         "name": "CharField",<br/>
+         "warehouse": Integer<br/>
+    }<br/>
     причем администратор может изменить поля count, name, warehouse, а поставщик и потребитель только поле count.
 
 12. Удалить определенный продукт(доступно только администратору):
