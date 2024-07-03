@@ -30,20 +30,20 @@
    - использовать метод POST
    - по таким полям:<br/>
     {<br/>
-      "username": "CharField",<br/>
-      "email": "EmailField",<br/>
-      "password": "CharField",<br/>
-      "user_type": "CharField"<br/>
+      "username": "Petya"(CharField),<br/>
+      "email": "petya@mail.petya" (EmailField),<br/>
+      "password": "12jij1"(CharField),<br/>
+      "user_type": "supplier"(CharField, choices: consumer/supplier)<br/>
     }<br/>
 2. Получить список пользователей(доступно только администратору):<br/>
    - http://127.0.0.1:8000/ApiUser/
    - использовать метод GET
    - вернутся такие поля:<br/>
    {<br/>
-      "id": Integer,<br/>
-      "username": "CharField",<br/>
-      "email": "EmailField",<br/>
-      "user_type": "CharField"<br/>
+      "id": 1(Integer),<br/>
+      "username": "Petya"(CharField),<br/>
+      "email": "petya@mail.petya"(EmailField),<br/>
+      "user_type": "supplier"(CharField, choices: consumer/supplier)<br/>
    }<br/>
 
 3. Получить, изменить, частично изменить, удалить определенного пользователя(доступно администратору или авторизованному владельцу данных):<br/>
@@ -51,10 +51,10 @@
 - использовать метод GET, PUT, PATCH, DELETE
 - использовать такие поля:<br/>
    {<br/>
-        "username": "CharField",<br/>
-        "email": "EmailField",<br/>
-        "password": "CharField",<br/>
-        "user_type": "CharField"<br/>
+        "username": "Petya"(CharField),<br/>
+        "email": "petya@mail.petya"(EmailField),<br/>
+        "password": "12jij1"(CharField),<br/>
+        "user_type": "supplier"(CharField, choices: consumer/supplier)<br/>
    }<br/>
 
 4. Зарегистрировать склад(доступно только администратору):
@@ -62,7 +62,7 @@
    - использовать метод POST
    - с такими полями:<br/>
    {<br/>
-       "name": "CharField"<br/>
+       "name": "склад картошек"(CharField)"<br/>
    }<br/>
 
 5. Получить список складов(доступно всем):
@@ -70,8 +70,8 @@
    - использовать метод GET
    - вернутся поля:<br/>
    {<br/>
-       "id": Integer,<br/>
-       "name": "CharField"<br/>
+       "id": 1(Integer),<br/>
+       "name": "склад картошек"(CharField)<br/>
    }<br/>
 
 6. Получить определенный склад(доступно всем):
@@ -79,8 +79,8 @@
    - использовать метод GET
    - вернутся поля:<br/>
    {<br/>
-       "id": Integer,<br/>
-       "name": "CharField",<br/>
+       "id": 1(Integer),<br/>
+       "name": "склад картошек"(CharField),<br/>
    }<br/>
 
 7. Изменить, частично изменить, удалить определенный склад(доступно только администратору):
@@ -88,7 +88,7 @@
    - использовать методы PUT, PATCH, DELETE
    - поля:<br/>
    {<br/>
-         "name": "CharField"<br/>
+         "name": "склад картошек"(CharField)<br/>
    }<br/>
 
 8. Зарегистрировать продукт(доступно только администратору):
@@ -96,9 +96,9 @@
    - использовать метод POST
    - с такими полями:<br/>
    {<br/>
-       "count": PositiveInteger,<br/>
-       "name": "CharField",<br/>
-       "warehouse": Integer,<br/>
+       "count": 11(PositiveInteger),<br/>
+       "name": "редиска"(CharField),<br/>
+       "warehouse": 1(Integer, id склада),<br/>
    }<br/>
 
 9. Получить список продуктов(доступно всем):
@@ -106,10 +106,10 @@
    - использовать метод GET
    - вернутся поля:<br/>
    {<br/>
-        "id": Integer,<br/>
-        "count": PositiveInteger,<br/>
-        "name": "CharField",<br/>
-        "warehouse": Integer<br/>
+        "id": 1(Integer),<br/>
+        "count": 11(PositiveInteger),<br/>
+        "name": "редиска"(CharField),<br/>
+        "warehouse": 1(Integer, id склада)<br/>
    }<br/>
 
 10. Получить определенный продукт(доступно всем):
@@ -117,10 +117,10 @@
    - использовать метод GET
    - вернутся поля:<br/>
    {<br/>
-        "id": Integer,<br/>
-        "count": PositiveInteger,<br/>
-        "name": "CharField",<br/>
-        "warehouse": Integer<br/>
+        "id": 1(Integer),<br/>
+        "count": 11(PositiveInteger),<br/>
+        "name": "редиска"(CharField),<br/>
+        "warehouse": 1(Integer, id склада)<br/>
    }<br/>
 
 11. Частично изменить, изменить определенный продукт(доступно администратору, поставщику и потребителю):
@@ -128,10 +128,10 @@
     - использовать метод PUT, PATCH
     - используются поля:<br/>
     {<br/>   
-         "id": Integer,<br/>
-         "count": PositiveInteger,<br/>
-         "name": "CharField",<br/>
-         "warehouse": Integer<br/>
+         "id": 1(Integer),<br/>
+         "count": 11(PositiveInteger),<br/>
+         "name": "редиска"(CharField),<br/>
+         "warehouse": 1(Integer, id склада)<br/>
     }<br/>
     причем администратор может изменить поля count, name, warehouse, а поставщик и потребитель только поле count.
 
